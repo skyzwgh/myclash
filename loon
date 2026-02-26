@@ -1,0 +1,353 @@
+
+[General]
+ipv6-vif = auto
+# IPv6 支持
+ip-mode = prefer-v4
+# UDP相关
+disable-stun = false
+udp-fallback-mode = REJECT
+# SNI辅助规则匹配
+sni-sniffing = true
+# 策略组切换时关闭连接
+disconnect-on-policy-change = true
+# 域名拦截行为
+domain-reject-mode = Request
+# 跳过代理
+# 跳过某个域名或者 IP 段，这些目标主机将不会由 Loon Proxy 处理。
+skip-proxy = localhost,*.local,captive.apple.com,e.crashlytics.com,www.baidu.com,passenger.t3go.cn,yunbusiness.ccb.com,wxh.wo.cn,gate.lagou.com,www.abchina.com.cn,login-service.mobile-bank.psbc.com,mobile-bank.psbc.com,10.0.0.0/8,127.0.0.1/32,172.16.0.0/12,192.168.0.0/16,192.168.122.1/32,193.168.0.1/32,::1/128,fe80::/10
+# > Always Real IP Hosts
+# DNS 数据包将被转发到上游 DNS 服务器。
+real-ip = *.lan,*.direct,cable.auth.com,*.msftconnecttest.com,*.msftncsi.com,network-test.debian.org,detectportal.firefox.com,resolver1.opendns.com,*.srv.nintendo.net,*.stun.playstation.net,xbox.*.microsoft.com,*.xboxlive.com,stun.*,global.turn.twilio.com,global.stun.twilio.com,app.yinxiang.com,injections.adguard.org,local.adguard.org,cable.auth.com,localhost.*.qq.com,localhost.*.weixin.qq.com,*.logon.battlenet.com.cn,*.logon.battle.net,*.blzstatic.cn,music.163.com,*.music.163.com,*.126.net,musicapi.taihe.com,music.taihe.com,songsearch.kugou.com,trackercdn.kugou.com,*.kuwo.cn,api-jooxtt.sanook.com,api.joox.com,joox.com,y.qq.com,*.y.qq.com,streamoc.music.tc.qq.com,mobileoc.music.tc.qq.com,isure.stream.qqmusic.qq.com,dl.stream.qqmusic.qq.com,aqqmusic.tc.qq.com,amobile.music.tc.qq.com,*.xiami.com,*.music.migu.cn,music.migu.cn,proxy.golang.org,*.mcdn.bilivideo.cn,*.cmpassport.com,id6.me,open.e.189.cn,opencloud.wostore.cn,id.mail.wo.cn,mdn.open.wo.cn,hmrz.wo.cn,nishub1.10010.com,enrichgw.10010.com,*.wosms.cn,*.jegotrip.com.cn,*.icitymobile.mobi,*.pingan.com.cn,*.cmbchina.com,*.10099.com.cn,*.microdone.cn,pool.ntp.org,*.pool.ntp.org,ntp.*.com,time.*.com,ntp?.*.com,time?.*.com,time.*.gov,time.*.edu.cn,*.ntp.org.cn,PDC._msDCS.*.*,DC._msDCS.*.*,GC._msDCS.*.*
+# 绕过路由
+bypass-tun = 10.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.0/16,172.16.0.0/12,192.0.0.0/24,192.0.2.0/24,192.88.99.0/24,192.168.0.0/16,198.18.0.0/15,198.51.100.0/24,203.0.113.0/24,224.0.0.0/4,255.255.255.255/32
+# DNS 服务器
+# DNS server
+dns-server = system,223.5.5.5,223.6.6.6,119.29.29.29
+# DoH server
+doh-server = https://dns.alidns.com/dns-query,https://doh.pub/dns-query
+# DoH3 server
+doh3-server = h3://dns.alidns.com/dns-query,h3://cloudflare-dns.com/dns-query
+# DoQ server
+doq-server = quic://dns.alidns.com:853
+# Wi-Fi 访问
+allow-wifi-access = true
+wifi-access-http-port = 1234
+wifi-access-socks5-port = 1235
+mitm-on-wifi-access = false
+# 代理测速 URL
+internet-test-url = http://connectivitycheck.platform.hicloud.com/generate_204
+proxy-test-url = http://detectportal.firefox.com/success.txt
+# 测速超时 (s)
+test-timeout = 5
+# 网络接口
+interface-mode = auto
+# 当节点连续失败多少次后开始切换节点
+switch-node-after-failure-times = 3
+# ssid-trigger参数，用于指定SSID下流量模式切换，（default表示默认，cellular表示蜂窝，目前支持三种值：rule，direct，proxy） 
+# ssid-trigger = "default":rule, "cellular":rule,"ASUS_5G":direct
+# geoip和asn
+# 解析器
+resource-parser = https://raw.githubusercontent.com/sub-store-org/Sub-Store/release/sub-store-parser.loon.min.js
+
+[Host
+
+[Remote Proxy]
+
+[Proxy Group]
+节点选择 = select,香港节点,狮城节点,日本节点,美国节点,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png
+美国节点 = select,美国,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+香港节点 = select,香港,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+狮城节点 = select,新加坡,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
+日本节点 = select,日本,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+spotify = select,香港节点,狮城节点,节点选择,DIRECT,韩国节点,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
+电报消息 = select,节点选择,香港节点,狮城节点,美国节点,DIRECT,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
+speedtest = select,DIRECT,节点选择,url = http://www.gstatic.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Speedtest.png
+苹果服务 = select,DIRECT,节点选择,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
+奈飞视频 = select,节点选择,狮城节点,香港节点,台湾节点,美国节点,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
+AI = select,my,美国节点,节点选择,url = http://www.gstatic.com/generate_204,img-url = https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/ChatGPT-green.png
+油管视频 = select,节点选择,香港节点,狮城节点,韩国节点,美国节点,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
+巴哈姆特 = select,节点选择,台湾节点,香港节点,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Bahamut.png
+国外媒体 = select,节点选择,狮城节点,香港节点,台湾节点,韩国节点,美国节点,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png
+港台番剧 = select,DIRECT,台湾节点,香港节点,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/StreamingSE.png
+台湾节点 = select,台湾,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
+韩国节点 = select,韩国,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png
+网易音乐 = select,DIRECT,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netease_Music.png
+FINAL = select,节点选择,DIRECT,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+
+[Remote Filter]
+香港 = NameRegex, FilterKey = "(?i)(港|HK|Hong)"
+台湾 = NameRegex, FilterKey = "(?i)(台|TW|Tai)"
+日本 = NameRegex, FilterKey = "(?i)(日本|川日|东京|大阪|泉日|埼玉|沪日|深日|JP|Japan)"
+韩国 = NameRegex, FilterKey = "(?i)(KR|Korea|KOR|首尔|韩|韓)"
+美国 = NameRegex, FilterKey = "(?i)(美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States)"
+新加坡 = NameRegex, FilterKey = "(?i)(新加坡|坡|狮城|SG|Singapore)"
+网易解锁 = NameRegex, FilterKey = "(?i)(unblock|music|Music|云音乐|🎧)"
+
+[Remote Rule]
+https://raw.githubusercontent.com/eulac-dev/Proxy/refs/heads/main/Loon/Rules/ResourceSite.lsr, policy=DIRECT, tag=网盘1, enabled=true
+https://raw.githubusercontent.com/eulac-dev/Proxy/refs/heads/main/Loon/Rules/PanVod.lsr, policy=DIRECT, tag=网盘, enabled=true
+https://rule.kelee.one/Loon/Spotify.lsr, policy=spotify, tag=Spotify.lsr, enabled=true
+https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy=美国节点, tag=AI.list, enabled=true
+https://rule.kelee.one/Loon/Steam.lsr, policy=节点选择, tag=Steam.list, enabled=true
+https://rule.kelee.one/Loon/SteamCN.lsr, policy=DIRECT, tag=SteamCN.list, enabled=false
+https://kelee.one/Tool/Loon/Lsr/SpeedtestInternational.lsr, policy=speedtest, tag=speedtest, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/TestFlight/TestFlight.list, policy=节点选择, tag=TestFlight, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Apple/Apple.list, policy=苹果服务, tag=苹果服务, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/NetEaseMusic/NetEaseMusic.list, policy=网易音乐, tag=网易音乐, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/YouTube/YouTube.list, policy=油管视频, tag=油管视频, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Netflix/Netflix.list, policy=奈飞视频, tag=奈飞视频, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Bahamut/Bahamut.list, policy=巴哈姆特, tag=巴哈姆特, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/GlobalMedia/GlobalMedia.list, policy=节点选择, tag=国外媒体, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/BiliBili/BiliBili.list, policy=DIRECT, tag=国内媒体, enabled=true
+https://rule.kelee.one/Loon/Telegram.lsr, policy=电报消息, tag=电报消息, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Proxy/Proxy.list, policy=节点选择, tag=全球规则, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Proxy/Proxy_Domain.list, policy=节点选择, tag=全球规则, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/China/China.list, policy=DIRECT, tag=全球直连, enabled=true
+
+[Rule]
+IP-CIDR,146.56.105.219/32,节点选择
+DOMAIN-SUFFIX,emby.dnscf.dpdns.org,节点选择
+DOMAIN-SUFFIX,nekoyo.co,节点选择
+DOMAIN-SUFFIX,javxx.com,节点选择
+DOMAIN-SUFFIX,live.fanmingming.cn,节点选择
+DOMAIN-SUFFIX,xxip9.top,节点选择
+DOMAIN-SUFFIX,15.204.105.50,DIRECT
+DOMAIN,15.204.105.50,DIRECT
+DOMAIN,abook.poloemby.xyz,DIRECT
+DOMAIN-SUFFIX,mi.miraiemby.com,节点选择
+DOMAIN,hls.obmoti.cn,节点选择
+DOMAIN-KEYWORD,learnpython,节点选择
+DOMAIN-SUFFIX,www.learnpython.org,节点选择
+DOMAIN-SUFFIX,slink.ltd,节点选择
+DOMAIN-SUFFIX,stream-1.miraiemby.com,DIRECT
+DOMAIN-KEYWORD,missav,日本节点
+DOMAIN-SUFFIX,data.videosnoerroranymore.com,节点选择
+DOMAIN-SUFFIX,cdn15.11yun.live,节点选择
+DOMAIN-SUFFIX,kanav.ad,节点选择
+DOMAIN,d34vyrelvmcjzt.cloudfront.net,DIRECT
+DOMAIN-SUFFIX,music.mefun.org,节点选择
+DOMAIN-SUFFIX,zwgh.myds.me,DIRECT
+DOMAIN-SUFFIX,last.fm,DIRECT
+DOMAIN,store.epicgames.com,DIRECT
+DOMAIN-SUFFIX,assrt.net,DIRECT
+DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,美国节点
+DOMAIN-SUFFIX,apple-relay.apple.com,美国节点
+DOMAIN-SUFFIX,cp4.cloudflare.com,美国节点
+DOMAIN-SUFFIX,apple-relay.fastly-edge.com,美国节点
+DOMAIN-SUFFIX,apple-relay.cloudflare.com,美国节点
+DOMAIN-SUFFIX,*.smoot.apple.com,美国节点
+DOMAIN-SUFFIX,guzzoni.apple.com,美国节点
+DOMAIN,play.sportsteam368.com,DIRECT
+DOMAIN-SUFFIX,audiences.me,DIRECT
+DOMAIN-SUFFIX,open.cd,DIRECT
+DOMAIN,bakamh.com,DIRECT
+DOMAIN,www.open.cd,DIRECT
+DOMAIN-SUFFIX,emby.kongcheng666.dpdns.org,节点选择
+DOMAIN-SUFFIX,sportal.serveone.cn,韩国节点
+DOMAIN-SUFFIX,yinhai.aiinyue.com,节点选择
+DOMAIN-SUFFIX,emby.kongcheng666.dpdns.org,DIRECT
+DOMAIN-SUFFIX,onlyfans.com,节点选择
+DOMAIN-SUFFIX,audio.poloemby.xyz,节点选择
+DOMAIN-SUFFIX,pluginhub.kelee.one,节点选择
+DOMAIN-SUFFIX,sukiaira.com,节点选择
+DOMAIN-SUFFIX,kfc.v50.su,节点选择
+DOMAIN-SUFFIX,zn.al,DIRECT
+DOMAIN-SUFFIX,gist.github.com,节点选择
+DOMAIN-SUFFIX,tv.iill.top,节点选择
+DOMAIN-SUFFIX,springsunday.net,DIRECT
+DOMAIN-SUFFIX,emby.feiniu.lol,节点选择
+DOMAIN-SUFFIX,vip.nangua.de,节点选择
+DOMAIN-SUFFIX,missav.ai,节点选择
+DOMAIN-SUFFIX,urlimage.cc,节点选择
+DOMAIN-SUFFIX,hupu.us,节点选择
+DOMAIN-SUFFIX,forum.navix.site,节点选择
+DOMAIN-SUFFIX,66img.cc,节点选择
+DOMAIN,pastatic.picsart.com,节点选择
+DOMAIN,hdatmos.club,节点选择
+DOMAIN-SUFFIX,api.github.com,节点选择
+DOMAIN-SUFFIX,sijishecn.cc,节点选择
+DOMAIN-SUFFIX,javmove.com,节点选择
+DOMAIN-SUFFIX,kbjfan.com,节点选择
+DOMAIN-SUFFIX,wallhaven.cc,节点选择
+DOMAIN-SUFFIX,hdpt.xyz,节点选择
+DOMAIN-SUFFIX,rr2---sn-i3b7knsl.googlevideo.com,节点选择
+DOMAIN-SUFFIX,invites.fun,节点选择
+DOMAIN-SUFFIX,nicept.net,节点选择
+DOMAIN-SUFFIX,javdb.com,节点选择
+DOMAIN-SUFFIX,www.appstorrent.ru,节点选择
+DOMAIN-SUFFIX,xsijishe.com,节点选择
+DOMAIN-SUFFIX,star-space.net,节点选择
+DOMAIN,grok-v2.x.ai,AI
+DOMAIN-SUFFIX,fsm.name,节点选择
+DOMAIN-SUFFIX,tanhuatv.site,节点选择
+DOMAIN-SUFFIX,nodeseek.com,节点选择
+DOMAIN-SUFFIX,uaa.com,节点选择
+DOMAIN-SUFFIX,taiav.com,节点选择
+DOMAIN,music.makifx.com,DIRECT
+DOMAIN-SUFFIX,sunnypt.top,DIRECT
+DOMAIN,xn--mes358acgm99l.com,节点选择
+DOMAIN,www.efcloud3.cc,节点选择
+DOMAIN-SUFFIX,vcards.metowolf.com,节点选择
+DOMAIN-SUFFIX,ghp.ci,节点选择
+DOMAIN-SUFFIX,avtoday.io,节点选择
+DOMAIN-SUFFIX,dongligang.xyz,节点选择
+DOMAIN,myym.cloud,节点选择
+DOMAIN,loon.126996.xyz,节点选择
+DOMAIN,img.supjav.com,节点选择
+DOMAIN,supjav.com,节点选择
+DOMAIN,xku5pv.jiuse904.com,节点选择
+DOMAIN,hghhh.com,节点选择
+DOMAIN,missav.com,节点选择
+DOMAIN,4k-av.com,节点选择
+DOMAIN,www.efcloud3.com,节点选择
+DOMAIN,www.efcloud.dev,节点选择
+DOMAIN,music.mefun.org,美国节点
+DOMAIN,xiers-organization.gitbook.io,节点选择
+DOMAIN-SUFFIX,agsvpt.com,节点选择
+DOMAIN,www.agsvpt.com,节点选择
+DOMAIN,embysupport.github.io,节点选择
+DOMAIN,wiki.vertex.icu,节点选择
+DOMAIN,github.com,节点选择
+DOMAIN,console.hetzner.cloud,DIRECT
+DOMAIN,tanhuatv.site,DIRECT
+DOMAIN-SUFFIX,emby-us-v4.mius.uk,香港节点
+DOMAIN,script.hub,节点选择
+DOMAIN-SUFFIX,hdsky.me,节点选择
+DOMAIN,hezu.wiki,节点选择
+DOMAIN-SUFFIX,dyy.dawanqukun.top,节点选择
+DOMAIN,6666666.buzz,日本节点
+DOMAIN,my.account.sony.com,DIRECT
+DOMAIN,id.sonyentertainmentnetwork.com,DIRECT
+DOMAIN,my.kelecloud.xyz,节点选择
+DOMAIN,feiyuefun.fun,节点选择
+DOMAIN,feiyueyun.fun,节点选择
+DOMAIN,6666666.buzz,节点选择
+DOMAIN,xn--ehq00hgtfdmt.xyz,节点选择
+DOMAIN-SUFFIX,ca.sanfen.me,节点选择
+DOMAIN,xn--9kq011n.xyz,节点选择
+DOMAIN,gamefaqs.gamespot.com,节点选择
+DOMAIN,www.vomicmh.com,节点选择
+DOMAIN,52jmd.com,节点选择
+DOMAIN,hhmg2.b-cdn.net,节点选择
+DOMAIN,ho5hocdn1.b-cdn.net,节点选择
+DOMAIN,www.ho5ho.com,节点选择
+DOMAIN,javday.tv,节点选择
+DOMAIN,hdbits.org,DIRECT
+DOMAIN,hhanclub.top,DIRECT
+DOMAIN,pt.keepfrds.com,DIRECT
+DOMAIN-SUFFIX,195.201.93.125,节点选择
+DOMAIN,195.201.93.125,节点选择
+DOMAIN,ptchdbits.co,节点选择
+GEOIP,CN,DIRECT
+FINAL,FINAL
+
+
+[Rewrite]
+enable = false
+# 京东比价Fix
+^https?:\/\/api\.m\.jd.com\/client\.action\?functionId=start reject-200
+
+[Remote Rewrite]
+
+[Script]
+http-request ^https?:\/\/api\.wsgw-rewrite\.com\/electricity\/bill\/all script-path=index.js, timeout=60, enabled=false, tag=7
+http-request pattern=^https?:\/\/api\.wsgw-rewrite\.com\/electricity\/bill\/all, script-path=https://raw.githubusercontent.com/dompling/Script/master/wsgw/index.js, requires-body=true, timeout=60, enabled=false, tag=index.js
+http-request https:\/\/m\.client\.10010\.com\/(.*)\/smartwisdomCommon script-path=https://raw.githubusercontent.com/dompling/Script/master/10010/index.js, timeout=20, enabled=false, tag=联通 headers
+cron "0 6 * * *" script-path=https://gist.githubusercontent.com/Sliverkiss/94ae2449c07f78e6ea44277c831a58c0/raw/southPlus.js, timeout=60, enabled=false, tag=south
+# 获取 Cookie
+http-response ^https:\/\/tapi\.zeehoev\.com\/v1\.0\/mine\/cfmotoservermine\/setting script-path=https://raw.githubusercontent.com/leiyiyan/resource/main/script/zeeho/zeeho.js, requires-body=true, timeout=60, enabled=false, tag=极核Cookie
+
+# 脚本任务
+cron "0 7 * * *" script-path=https://raw.githubusercontent.com/leiyiyan/resource/main/script/zeeho/zeeho.js, timeout=300, enabled=false, tag=极核
+
+http-request ^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341A038|autoLogin) script-path=https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js, requires-body=true, timeout=20, enabled=false, tag=建行数据
+
+cron "17 7 * * *" script-path=https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js, timeout=300, enabled=false, tag=建行生活
+cron "8 9 * * *" script-path=xcbwc.js, timeout=60, enabled=false, tag=小蚕
+cron "1 9 * * *" script-path=teaMilk.js, timeout=10, enabled=false, tag=奶茶, img-url=https://raw.githubusercontent.com/Xhy333/QuantumultX/main/icon/Bwcj.png
+http-response ^https:\/\/(webapi|webapi2)\.qmai\.cn\/web\/seller\/(oauth\/flash-sale-login|account\/login-minp) script-path=teaMilk.js, requires-body=true, timeout=60, enabled=false, tag=奶茶获取token
+
+
+cron "11 9 * * *" script-path=sfsy.js, timeout=10, tag=顺丰, img-url=https://raw.githubusercontent.com/Xhy333/QuantumultX/main/icon/Sfsy-1.png
+
+http-request ^https:\/\/game\.dominos\.com\.cn\/.+\/game\/gameDone script-path=https://gist.githubusercontent.com/Sliverkiss/6b4da0d367d13790a9fd1d928c82bdf8/raw/dlm.js, requires-body=true, timeout=10, enabled=false, tag=达美乐披萨获取token
+
+http-response ^https:\/\/mcs-mimp-web\.sf-express\.com\/mcs-mimp\/share\/weChat\/shareGiftReceiveRedirect.+ script-path=https://gist.githubusercontent.com/Sliverkiss/1fb1cf9cd7486d30752b1ba29b871e37/raw/sfsy.js, requires-body=true, timeout=60, enabled=false, tag=顺丰速运获取token
+
+cron "30 10 * * *" script-path=dlm.js, timeout=10, enabled=false, tag=达美乐, img-url=https://raw.githubusercontent.com/Xhy333/QuantumultX/main/icon/Dlm.png
+cron "9 15 * * *" script-path=hlbdy.js, timeout=10, enabled=false, tag=黑料
+cron "15 9 * * *" script-path=jparking_sign.js, timeout=300, enabled=false, tag=捷停车签到
+
+[Remote Script]
+
+[Plugin]
+https://gitlab.com/isous/loonresource/-/raw/main/Plugin/Emby_crack.plugin, enabled=true
+https://kelee.one/Tool/Loon/Lpx/BlockAdvertisers.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Remove_ads_by_keli.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Block_HTTPDNS.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/NodeLinkCheck.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/BaiduSearchWebpage_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Dewu_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Prevent_DNS_Leaks.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/SodaMusic_remove_ads.lpx, enabled=true
+https://github.com/DualSubs/Spotify/releases/latest/download/DualSubs.Spotify.plugin, enabled=false
+https://raw.githubusercontent.com/deezertidal/private/master/plugallery/bili.plugin, enabled=false
+https://github.com/fmz200/wool_scripts/raw/main/Loon/plugin/blockAds.plugin, enabled=false
+https://kelee.one/Tool/Loon/Lpx/Spotify_lyrics_translation.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/XiaomiSpeaker_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Weibo_intl_remove_ads.lpx, enabled=true
+https://gist.github.com/MrRegret/5bb2df7c332157fd35b514af8e635b10/raw, policy=节点选择, tag=forward, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Spotify_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/AutoHome_remove_ads.lpx, enabled=true
+https://github.com/BiliUniverse/Global/releases/latest/download/BiliBili.Global.plugin, enabled=false
+https://kelee.one/Tool/Loon/Lpx/Bilibili_remove_ads.lpx, policy=节点选择, enabled=true
+https://kelee.one/Tool/Loon/Lpx/smzdm_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/JD_Price.lpx, enabled=true
+gitHub429.plugin, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png, enabled=false
+https://raw.githubusercontent.com/deezertidal/private/master/plugallery/vsco.plugin, enabled=false
+https://gitlab.com/isous/loonresource/-/raw/main/Plugin/ColorfulClouds_shared_membership.plugin, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Node_detection_tool.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/LoonGallery.lpx, policy=节点选择, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Switch_github_mirror.lpx, enabled=false
+https://kelee.one/Tool/Loon/Lpx/LuckinCoffee_remove_ads.lpx, enabled=false
+https://kelee.one/Tool/Loon/Lpx/Google.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Sub-Store.lpx, policy=节点选择, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Script-Hub.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/SF-Express_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/PinDuoDuo_remove_ads.lpx, enabled=false
+https://kelee.one/Tool/Loon/Lpx/FleaMarket_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Douyu_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/ColorfulClouds_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/QuarkBrowser_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/XiaoHeiHe_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/HUPU_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Taobao_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/JD_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/WexinMiniPrograms_Remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Amap_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Daily_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Weixin_Official_Accounts_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/RedPaper_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/CoolApk_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/NeteaseCloudMusic_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Zhihu_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Baidu_input_method_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/YouTube_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Tieba_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Himalaya_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Cainiao_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/XiaChuFang_remove_ads.lpx, enabled=true
+https://github.com/BiliUniverse/Enhanced/releases/latest/download/BiliBili.Enhanced.plugin, enabled=false
+https://raw.githubusercontent.com/fangkuia/XPTV/main/X/xptv.plugin, enabled=false
+https://raw.githubusercontent.com/fangkuia/XPTV/main/X/listenify.plugin, enabled=false
+https://raw.githubusercontent.com/osinx/Script/main/vip/streamMusic.plugin, enabled=false
+
+https://raw.githubusercontent.com/chavyleung/scripts/master/box/rewrite/boxjs.rewrite.loon.plugin, policy=节点选择, enabled=true
+
+[MITM]
+ca-p12 = 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
+ca-passphrase = V2H6NNYW
+enable = false
+skip-server-cert-verify = true
+hostname = missav.live,jable.tv,missav.live,game.dominos.com.cn,mcs-mimp-web.sf-express.com,webapi2.qmai.cn,webapi.qmai.cn,qmwebapi.qmai.cn,gw.xiaocantech.com,yunbusiness.ccb.com,tapi.zeehoev.com,api.wsgw-rewrite.com
+
