@@ -2,8 +2,28 @@
 # 供 Clash 和 Loon 直接引用
 # 用法：每行一条规则，取消行首的 # 即生效
 # 支持 DOMAIN、DOMAIN-SUFFIX、DOMAIN-KEYWORD
-#
-# 示例：
-# DOMAIN-SUFFIX,example.com
-# DOMAIN,sub.example.org
-# DOMAIN-KEYWORD,keyword
+# 已并入原 ProxyLite.list 的规则
+DOMAIN-SUFFIX,javdb.com
+DOMAIN-SUFFIX,javbus.com
+DOMAIN-SUFFIX,jav321.com
+DOMAIN-SUFFIX,avsox.click
+DOMAIN-SUFFIX,api.tmdb.org
+DOMAIN-SUFFIX,themoviedb.org
+DOMAIN-SUFFIX,webservice.fanart.tv
+DOMAIN-SUFFIX,api.themoviedb.org
+DOMAIN-SUFFIX,assets.fanart.tv
+DOMAIN-SUFFIX,api4.thetvdb.com
+DOMAIN-SUFFIX,api.thetvdb.com
+DOMAIN-SUFFIX,movie-pilot.org
+DOMAIN-SUFFIX,image.tmdb.org.com
+DOMAIN-SUFFIX,mb3admin.com
+DOMAIN-SUFFIX,img.omdbapi.com
+DOMAIN-SUFFIX,private.omdbapi.com
+DOMAIN-SUFFIX,javlibrary.com
+DOMAIN-SUFFIX,avbase.net
+DOMAIN-SUFFIX,freejavbt.com
+DOMAIN-SUFFIX,7mmtv.sx
+DOMAIN-SUFFIX,cdn.up-timely.com
+DOMAIN-SUFFIX,cdn.faleno.net
+DOMAIN-KEYWORD,airav-cc
+DOMAIN-KEYWORD,avsex
