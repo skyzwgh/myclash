@@ -1,0 +1,9 @@
+# 直连 - 走直连的域名分流
+# 供 Clash 和 Loon 直接引用
+# 用法：每行一条规则，取消行首的 # 即生效
+# 支持 DOMAIN、DOMAIN-SUFFIX、DOMAIN-KEYWORD
+#
+# 示例：
+# DOMAIN-SUFFIX,example.com
+# DOMAIN,sub.example.org
+# DOMAIN-KEYWORD,keyword
